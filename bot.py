@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import os
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -16,7 +17,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    await member.guild.get_channel(857371776166002719).send(member.mention + "님 아스테라 디스코드에 오신 것을 환영합니다.\n서버 좌측에 공지사항이 있으니 꼭 확인해 주세요!")
+    await member.guild.get_channel(int(os.environ["channel"])).send(member.mention + "님 아스테라 디스코드에 오신 것을 환영합니다.\n서버 좌측에 공지사항이 있으니 꼭 확인해 주세요!")
 
 
 @client.event
@@ -254,4 +255,4 @@ async def on_message(message):
 
 
 # 클로이 실행
-client.run("ODU3NTM3MDQ4NTgwMDYzMjYy.YNRBnA.6hjSjUKawZu9xXjg0Utyb9OcaCA")
+client.run(os.environ["token"])
