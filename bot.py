@@ -254,7 +254,7 @@ async def on_message(message):
             name="캐릭터 공략", value="[뉴비분들을 위한 이나비 공략 (2020.12.26)](https://page.onstove.com/soulworker/kr/view/6536545)\n[이나비 힛앤런 쓰는 프리셋 (2021.04.22)](https://arca.live/b/soulworkers/24915730)\n[이나비 솔로 히든 하이드아웃 영상 (2021.05.23)](https://www.youtube.com/watch?v=5xMsDmSzkvg)", inline=False)
         await message.channel.send(embed=embed)
     elif message.content == "!테스트":
-        await message.channel.send("현재 시간: " + datetime.datetime.now())
+        await message.channel.send("현재 시간: " + str(datetime.datetime.now()))
 
 
 # 클로이 실행
