@@ -1,7 +1,9 @@
 import discord
+from discord.ext import tasks
 import asyncio
 import os
 import datetime
+import time
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -14,6 +16,12 @@ async def on_ready():
     print('Bot ID: ' + str(client.user.id))
     print('-------------------------------------------')
     await client.change_presence(status=discord.Status.online, activity=discord.Game("아스테라 리그 업무"))
+
+
+@tasks.loop(seconds=1)
+async def contents_notify():
+    await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('현재시간: ' + str(datetime.now()))
+    time.sleep(1)
 
 
 @client.event
