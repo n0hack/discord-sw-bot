@@ -2,11 +2,32 @@ import discord
 from discord.ext import tasks
 import asyncio
 import os
-import datetime
+from datetime import datetime
 import time
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
+
+# time_variables
+doom_time_1 = datetime(2021, 1, 1, 12, 50, 0).strftime("%H:%M:%S")
+doom_time_2 = datetime(2021, 1, 1, 20, 50, 0).strftime("%H:%M:%S")
+league_raid_time = datetime(2021, 1, 1, 21, 50, 0).strftime("%H:%M:%S")
+
+
+@tasks.loop(seconds=1)
+async def contents_notify():
+    now = datetime.now().astimezone().strftime("%H:%M:%S")
+    now_week = datetime.now().astimezone().weekday()
+    # 둠 타임 오후 1시
+    if now == doom_time_1:
+        await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 1시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
+    # 둠 타임 오후 9시
+    elif now == doom_time_2:
+        await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 9시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
+
+    # 리그 레이드 타임 주말 오후 10시
+    if (now_week == 5 or now_week == 6) and now == league_raid_time:
+        await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 10시) 리그 레이드가 예정되어 있습니다.\n리그원들과 함께 15만점을 달성해서, 리그 레이드 코인 20개를 획득해 주세요!\n\n획득한 보상으로 세레스(길드 NPC) 상점에서 다양한 아이템 구매가 가능합니다!')
 
 
 @client.event
@@ -17,19 +38,16 @@ async def on_ready():
     print('-------------------------------------------')
     await client.change_presence(status=discord.Status.online, activity=discord.Game("아스테라 리그 업무"))
 
-
-@tasks.loop(seconds=1)
-async def contents_notify():
-    await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('현재시간: ' + str(datetime.now()))
-    time.sleep(1)
+    # 태스크 실행
+    contents_notify.start()
 
 
-@client.event
+@ client.event
 async def on_member_join(member):
     await member.guild.get_channel(int(os.environ["channel"])).send(member.mention + "님 아스테라 디스코드에 오신 것을 환영합니다.\n서버 좌측에 공지사항이 있으니 꼭 확인해 주세요!")
 
 
-@client.event
+@ client.event
 async def on_message(message):
     if message.author.bot:
         return
@@ -261,11 +279,9 @@ async def on_message(message):
         embed.add_field(
             name="캐릭터 공략", value="[뉴비분들을 위한 이나비 공략 (2020.12.26)](https://page.onstove.com/soulworker/kr/view/6536545)\n[이나비 힛앤런 쓰는 프리셋 (2021.04.22)](https://arca.live/b/soulworkers/24915730)\n[이나비 솔로 히든 하이드아웃 영상 (2021.05.23)](https://www.youtube.com/watch?v=5xMsDmSzkvg)", inline=False)
         await message.channel.send(embed=embed)
-    elif message.content == "!테스트":
-        await message.channel.send("현재 시간: " + str(datetime.datetime.now()))
+    elif message.content == "!시간":
+        await message.channel.send("현재 시간은 " + datetime.now().strftime("%H:%M:%S") + "입니다!")
 
 
-# 태스크 실행
-contents_notify.start()
 # 클로이 실행
 client.run(os.environ["token"])
