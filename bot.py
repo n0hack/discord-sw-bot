@@ -265,5 +265,7 @@ async def on_message(message):
         await message.channel.send("현재 시간: " + str(datetime.datetime.now()))
 
 
+# 태스크 실행
+contents_notify.start()
 # 클로이 실행
 client.run(os.environ["token"])
