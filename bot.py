@@ -1,9 +1,14 @@
 import discord
 import asyncio
 import os
+import datetime
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
+
+# test token
+# os.environ["channel"] = "857371776166002719"
+# os.environ["token"] = "ODU3NTM3MDQ4NTgwMDYzMjYy.YNRBnA.oVQO4SAlw2ryWU3P8eziAJelzd4"
 
 
 @client.event
@@ -252,6 +257,8 @@ async def on_message(message):
         embed.add_field(
             name="캐릭터 공략", value="[뉴비분들을 위한 이나비 공략 (2020.12.26)](https://page.onstove.com/soulworker/kr/view/6536545)\n[이나비 힛앤런 쓰는 프리셋 (2021.04.22)](https://arca.live/b/soulworkers/24915730)\n[이나비 솔로 히든 하이드아웃 영상 (2021.05.23)](https://www.youtube.com/watch?v=5xMsDmSzkvg)", inline=False)
         await message.channel.send(embed=embed)
+    elif message.content == "!테스트":
+        await message.channel.send("현재 시간: " + datetime.datetime.now())
 
 
 # 클로이 실행
