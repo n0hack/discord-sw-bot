@@ -6,10 +6,6 @@ import datetime
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-# test token
-# os.environ["channel"] = "857371776166002719"
-# os.environ["token"] = "ODU3NTM3MDQ4NTgwMDYzMjYy.YNRBnA.oVQO4SAlw2ryWU3P8eziAJelzd4"
-
 
 @client.event
 async def on_ready():
