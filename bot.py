@@ -21,8 +21,6 @@ async def contents_notify():
     now = datetime.now().astimezone(KST).strftime("%H:%M:%S")
     now_week = datetime.now().astimezone(KST).weekday()
 
-    await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + str(now_week) + ", 리레: " + league_raid_time)
-
     # doom time_1 (01:00 pm)
     if now == doom_time_1:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 1시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
