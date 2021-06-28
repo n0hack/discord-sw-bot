@@ -4,6 +4,7 @@ import asyncio
 import os
 from datetime import datetime
 import time
+from pytz import timezone
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -281,8 +282,9 @@ async def on_message(message):
             name="캐릭터 공략", value="[뉴비분들을 위한 이나비 공략 (2020.12.26)](https://page.onstove.com/soulworker/kr/view/6536545)\n[이나비 힛앤런 쓰는 프리셋 (2021.04.22)](https://arca.live/b/soulworkers/24915730)\n[이나비 솔로 히든 하이드아웃 영상 (2021.05.23)](https://www.youtube.com/watch?v=5xMsDmSzkvg)", inline=False)
         await message.channel.send(embed=embed)
     elif message.content == "!시간":
-        now = datetime.now().astimezone().strftime("%H:%M:%S")
-        now_week = datetime.now().astimezone().weekday()
+        KST = timezone('Asia/Seoul')
+        now = datetime.now().astimezone(KST).strftime("%H:%M:%S")
+        now_week = datetime.now().astimezone(KST).weekday()
         await message.channel.send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + str(now_week) + ", 리레: " + league_raid_time)
 
         if now_week == 5 or now_week == 6:
