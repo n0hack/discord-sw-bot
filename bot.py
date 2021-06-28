@@ -8,6 +8,10 @@ import time
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
+os.environ["channel"] = "857371776166002719"
+os.environ["token"] = "ODU3NTM3MDQ4NTgwMDYzMjYy.YNRBnA.VtUz9cc4EGlH4BX4KT68hAhTslU"
+os.environ["server"] = "857371775683133480"
+
 # time_variables
 doom_time_1 = datetime(2021, 1, 1, 12, 50, 0).strftime("%H:%M:%S")
 doom_time_2 = datetime(2021, 1, 1, 20, 50, 0).strftime("%H:%M:%S")
@@ -18,14 +22,19 @@ league_raid_time = datetime(2021, 1, 1, 21, 50, 0).strftime("%H:%M:%S")
 async def contents_notify():
     now = datetime.now().astimezone().strftime("%H:%M:%S")
     now_week = datetime.now().astimezone().weekday()
-    # 둠 타임 오후 1시
+    print(doom_time_1)
+    print(doom_time_2)
+    print(league_raid_time)
+    print(now)
+    print(now_week)
+    # doom time_1 (01:00 pm)
     if now == doom_time_1:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 1시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
-    # 둠 타임 오후 9시
+    # doom time_2 (09:00 pm)
     elif now == doom_time_2:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 9시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
 
-    # 리그 레이드 타임 주말 오후 10시
+    # league raid time (Weekend 10:00 pm)
     if (now_week == 5 or now_week == 6) and now == league_raid_time:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 10시) 리그 레이드가 예정되어 있습니다.\n리그원들과 함께 15만점을 달성해서, 리그 레이드 코인 20개를 획득해 주세요!\n\n획득한 보상으로 세레스(길드 NPC) 상점에서 다양한 아이템 구매가 가능합니다!')
 
@@ -38,12 +47,13 @@ async def on_ready():
     print('-------------------------------------------')
     await client.change_presence(status=discord.Status.online, activity=discord.Game("아스테라 리그 업무"))
 
-    # 태스크 실행
+    # run background task
     contents_notify.start()
 
 
 @ client.event
 async def on_member_join(member):
+    # time.sleep(1)
     await member.guild.get_channel(int(os.environ["channel"])).send(member.mention + "님 아스테라 디스코드에 오신 것을 환영합니다.\n서버 좌측에 공지사항이 있으니 꼭 확인해 주세요!")
 
 
