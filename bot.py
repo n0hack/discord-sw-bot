@@ -283,7 +283,12 @@ async def on_message(message):
     elif message.content == "!시간":
         now = datetime.now().astimezone().strftime("%H:%M:%S")
         now_week = datetime.now().astimezone().weekday()
-        await message.channel.send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + str(now_week))
+        await message.channel.send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + str(now_week) + ", 리레: " + league_raid_time)
+
+        if now_week == 5 or now_week == 6:
+            await message.channel.send("조건 테스트 케이스 1")
+        else:
+            await message.channel.send("조건 테스트 케이스 2")
 
 
 # 클로이 실행
