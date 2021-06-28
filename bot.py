@@ -8,10 +8,6 @@ import time
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-os.environ["channel"] = "857371776166002719"
-os.environ["token"] = "ODU3NTM3MDQ4NTgwMDYzMjYy.YNRBnA.VtUz9cc4EGlH4BX4KT68hAhTslU"
-os.environ["server"] = "857371775683133480"
-
 # time_variables
 doom_time_1 = datetime(2021, 1, 1, 12, 50, 0).strftime("%H:%M:%S")
 doom_time_2 = datetime(2021, 1, 1, 20, 50, 0).strftime("%H:%M:%S")
@@ -22,11 +18,6 @@ league_raid_time = datetime(2021, 1, 1, 21, 50, 0).strftime("%H:%M:%S")
 async def contents_notify():
     now = datetime.now().astimezone().strftime("%H:%M:%S")
     now_week = datetime.now().astimezone().weekday()
-    print(doom_time_1)
-    print(doom_time_2)
-    print(league_raid_time)
-    print(now)
-    print(now_week)
     # doom time_1 (01:00 pm)
     if now == doom_time_1:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 1시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
@@ -290,7 +281,9 @@ async def on_message(message):
             name="캐릭터 공략", value="[뉴비분들을 위한 이나비 공략 (2020.12.26)](https://page.onstove.com/soulworker/kr/view/6536545)\n[이나비 힛앤런 쓰는 프리셋 (2021.04.22)](https://arca.live/b/soulworkers/24915730)\n[이나비 솔로 히든 하이드아웃 영상 (2021.05.23)](https://www.youtube.com/watch?v=5xMsDmSzkvg)", inline=False)
         await message.channel.send(embed=embed)
     elif message.content == "!시간":
-        await message.channel.send("현재 시간은 " + datetime.now().strftime("%H:%M:%S") + "입니다!")
+        now = datetime.now().astimezone().strftime("%H:%M:%S")
+        now_week = datetime.now().astimezone().weekday()
+        await message.channel.send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + now_week)
 
 
 # 클로이 실행
