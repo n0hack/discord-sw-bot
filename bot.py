@@ -283,7 +283,7 @@ async def on_message(message):
     elif message.content == "!시간":
         now = datetime.now().astimezone().strftime("%H:%M:%S")
         now_week = datetime.now().astimezone().weekday()
-        await message.channel.send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + now_week)
+        await message.channel.send("현재 시간은 " + now + ", 둠 타임은 " + doom_time_1 + ", " + doom_time_2 + ", 요일: " + str(now_week))
 
 
 # 클로이 실행
