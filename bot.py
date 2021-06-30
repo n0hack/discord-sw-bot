@@ -12,7 +12,7 @@ client = discord.Client(intents=intents)
 # time_variables
 doom_time_1 = datetime(2021, 1, 1, 12, 50, 0).strftime("%H:%M:%S")
 doom_time_2 = datetime(2021, 1, 1, 20, 50, 0).strftime("%H:%M:%S")
-league_raid_time = datetime(2021, 1, 1, 21, 50, 0).strftime("%H:%M:%S")
+league_raid_time = datetime(2021, 1, 1, 0, 0, 0).strftime("%H:%M:%S")
 KST = timezone('Asia/Seoul')
 
 
@@ -29,8 +29,8 @@ async def contents_notify():
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 9시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
 
     # league raid time (Weekend 10:00 pm)
-    if (now_week == 5 or now_week == 6) and now == league_raid_time:
-        await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 10시) 리그 레이드가 예정되어 있습니다.\n리그원들과 함께 15만점을 달성해서, 리그 레이드 코인 20개를 획득해 주세요!\n\n획득한 보상으로 세레스(길드 NPC) 상점에서 다양한 아이템 구매가 가능합니다!')
+    if (now_week == 4 or now_week == 6) and now == league_raid_time:
+        await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('목-금/토-일은 리그 레이드가 오픈되어 있습니다.\n리그원들과 함께 15만점을 달성해서, 리그 레이드 코인 20개를 획득해 주세요!\n\n획득한 보상으로 세레스(길드 NPC) 상점에서 다양한 아이템 구매가 가능합니다!')
 
 
 @client.event
