@@ -60,7 +60,7 @@ async def on_message(message):
         await message.channel.send(message.author.nick + "님 안녕하세요!")
     elif message.content == "!리그파티":
         embed = discord.Embed(
-            title="아스테라 리그 파티/포스 시간표입니다!", description="`1. 루나폴 (준비 중)`\n`2. 바이올런트 선 (준비 중)`\n`3. 브로큰 세이비어 (준비 중)`\n`4. 리그 레이드 - 리젼 인베이더 (토/일 오후 10시)`\n", color=0x00aaaa)
+            title="아스테라 리그 파티/포스 시간표입니다!", description="`1. 루나폴 (준비 중)`\n`2. 바이올런트 선 (준비 중)`\n`3. 브로큰 세이비어 (준비 중)`\n`4. 리그 레이드 - 리젼 인베이더 (목-금/토-일 상시 오픈)`\n", color=0x00aaaa)
         await message.channel.send(embed=embed)
     elif message.content == "!명령어":
         embed = discord.Embed(
