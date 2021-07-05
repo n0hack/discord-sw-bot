@@ -29,7 +29,7 @@ async def contents_notify():
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 9시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
 
     # league raid time (Weekend 10:00 pm)
-    if (now_week == 4 or now_week == 6) and now == league_raid_time:
+    if (now_week == 3 or now_week == 4 or now_week == 5 or now_week == 6) and now == league_raid_time:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('목-금/토-일은 리그 레이드가 오픈되어 있습니다.\n리그원들과 함께 15만점을 달성해서, 리그 레이드 코인 20개를 획득해 주세요!\n\n획득한 보상으로 세레스(길드 NPC) 상점에서 다양한 아이템 구매가 가능합니다!')
 
 
@@ -60,7 +60,7 @@ async def on_message(message):
         await message.channel.send(message.author.nick + "님 안녕하세요!")
     elif message.content == "!리그파티":
         embed = discord.Embed(
-            title="아스테라 리그 파티/포스 시간표입니다!", description="`1. 루나폴 (준비 중)`\n`2. 바이올런트 선 (준비 중)`\n`3. 브로큰 세이비어 (준비 중)`\n`4. 리그 레이드 - 리젼 인베이더 (목-금/토-일 상시 오픈)`\n", color=0x00aaaa)
+            title="아스테라 리그 파티/포스 시간표입니다!", description="`1. 루나폴 (오후 9시 둠 이후 자율 구성)`\n`2. 바이올런트 선 (오후 9시 둠 이후 자율 구성)`\n`3. 브로큰 세이비어 (오후 9시 둠 이후 자율 구성)`\n`4. 리그 레이드 - 리젼 인베이더 (목/토 0시 오픈, 48시간 유지)`\n\n모든 컨텐츠는 편하게 9시 이후 자율적으로 구성하면 됩니다.\n반고정 형태로 운영할 계획이기에, 서로가 주도해서 서로를 챙겨 주시면 감사하겠습니다!", color=0x00aaaa)
         await message.channel.send(embed=embed)
     elif message.content == "!명령어":
         embed = discord.Embed(
