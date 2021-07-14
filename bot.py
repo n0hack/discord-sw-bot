@@ -60,7 +60,7 @@ async def on_message(message):
     # 명령어 리스트 확인
     if message.content == "!명령어":
         embed = discord.Embed(
-            title="안녕하세요! 오퍼레이터 클로이입니다!!!", description="리그원 분들께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요  💕", color=0x00aaaa)
+            title="안녕하세요! 오퍼레이터 클로이입니다!!!", description="리그원 분들께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요ㅤ💕\n", color=0x00aaaa)
         embed.add_field(name="클로이와 인사", value="`!안녕`", inline=True)
         embed.add_field(name="함께 하는 컨텐츠", value="`!리그파티`", inline=True)
         embed.add_field(
