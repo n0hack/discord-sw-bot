@@ -16,6 +16,7 @@ league_raid_time = datetime(2021, 1, 1, 0, 0, 0).strftime("%H:%M:%S")
 KST = timezone('Asia/Seoul')
 
 
+# 컨텐츠 알림
 @tasks.loop(seconds=1)
 async def contents_notify():
     now = datetime.now().astimezone(KST).strftime("%H:%M:%S")
