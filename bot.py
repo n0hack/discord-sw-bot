@@ -9,7 +9,7 @@ from pytz import timezone
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-# time_variables
+# 시간 변수
 doom_time_1 = datetime(2021, 1, 1, 12, 50, 0).strftime("%H:%M:%S")
 doom_time_2 = datetime(2021, 1, 1, 20, 50, 0).strftime("%H:%M:%S")
 league_raid_time = datetime(2021, 1, 1, 0, 0, 0).strftime("%H:%M:%S")
@@ -22,14 +22,14 @@ async def contents_notify():
     now = datetime.now().astimezone(KST).strftime("%H:%M:%S")
     now_week = datetime.now().astimezone(KST).weekday()
 
-    # doom time_1 (01:00 pm)
+    # 월드보스 안내 (오후 1시)
     if now == doom_time_1:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 1시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
-    # doom time_2 (09:00 pm)
+    # 월드보스 안내 (오후 9시)
     elif now == doom_time_2:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('10분 뒤(오후 9시) 월드보스 둠 출현 예정!\n잊지 말고 참여해서 처치 후 보상을 획득해 주세요!')
 
-    # league raid time (Weekend 10:00 pm)
+    # 리그레이드 안내 (자정)
     if (now_week == 3 or now_week == 4 or now_week == 5 or now_week == 6) and now == league_raid_time:
         await client.get_guild(int(os.environ["server"])).get_channel(int(os.environ["channel"])).send('목-금/토-일은 리그 레이드가 오픈되어 있습니다.\n리그원들과 함께 15만점을 달성해서, 리그 레이드 코인 20개를 획득해 주세요!\n\n획득한 보상으로 세레스(길드 NPC) 상점에서 다양한 아이템 구매가 가능합니다!')
 
@@ -57,15 +57,10 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    if message.content == "!안녕":
-        await message.channel.send(message.author.nick + "님 안녕하세요!")
-    elif message.content == "!리그파티":
+    # 명령어 리스트 확인
+    if message.content == "!명령어":
         embed = discord.Embed(
-            title="아스테라 리그 파티/포스 시간표입니다!", description="`1. 루나폴 (오후 9시 둠 이후 자율 구성)`\n`2. 바이올런트 선 (오후 9시 둠 이후 자율 구성)`\n`3. 브로큰 세이비어 (오후 9시 둠 이후 자율 구성)`\n`4. 리그 레이드 - 리젼 인베이더 (목/토 0시 오픈, 48시간 유지)`\n\n모든 컨텐츠는 편하게 9시 이후 자율적으로 구성하면 됩니다.\n서로가 주도해서 서로를 챙겨 주시면 감사하겠습니다!\n\n리그 컨텐츠는 모두 7채널에서 함께 진행합니다 😆", color=0x00aaaa)
-        await message.channel.send(embed=embed)
-    elif message.content == "!명령어":
-        embed = discord.Embed(
-            title="안녕하세요! 오퍼레이터 클로이입니다!", description="리그원 분들께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요  💕", color=0x00aaaa)
+            title="안녕하세요! 오퍼레이터 클로이입니다!!!", description="리그원 분들께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요  💕", color=0x00aaaa)
         embed.add_field(name="클로이와 인사", value="`!안녕`", inline=True)
         embed.add_field(name="함께 하는 컨텐츠", value="`!리그파티`", inline=True)
         embed.add_field(
@@ -74,6 +69,12 @@ async def on_message(message):
             name="캐릭터 공략", value="`!하루`, `!어윈`, `!스텔라`, `!릴리`, `!진`, `!이리스`\n`!치이`, `!에프넬`, `!이나비`", inline=False)
         embed.add_field(
             name="심화 정보", value="`!파밍순서`, `!소켓`, `!제련`, `!브로치`, `!아카식`, `!칭호`, `!적중도`, `!레이드`\n`!도핑`, `!무적기`, `!재화`, `!퀘스트`, `!코스튬`, `!최적화`, `!프리카메라`", inline=False)
+        await message.channel.send(embed=embed)
+    elif message.content == "!안녕":
+        await message.channel.send(message.author.nick + "님 안녕하세요!")
+    elif message.content == "!리그파티":
+        embed = discord.Embed(
+            title="아스테라 리그 파티/포스 시간표입니다!", description="`1. 루나폴 (오후 9시 둠 이후 자율 구성)`\n`2. 바이올런트 선 (오후 9시 둠 이후 자율 구성)`\n`3. 브로큰 세이비어 (오후 9시 둠 이후 자율 구성)`\n`4. 리그 레이드 - 리젼 인베이더 (목/토 0시 오픈, 48시간 유지)`\n\n모든 컨텐츠는 편하게 9시 이후 자율적으로 구성하면 됩니다.\n서로가 주도해서 서로를 챙겨 주시면 감사하겠습니다!\n\n리그 컨텐츠는 모두 7채널에서 함께 진행합니다 😆", color=0x00aaaa)
         await message.channel.send(embed=embed)
     elif message.content == "!육성":
         embed = discord.Embed(title="현재 준비된 육성 가이드입니다!",
