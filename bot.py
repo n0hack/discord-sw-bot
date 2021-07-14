@@ -145,7 +145,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!숙제":
         embed = discord.Embed(
-            title="숙제와 관련된 정보입니다!", description="매일 하면 좋은 숙제를 정리했습니다.\n\n[공통 숙제 정리](https://discord.com/channels/857371775683133480/857381576794832906/857495964176875530)")
+            title="소울워커 숙제에 대한 정보입니다!", description="행동력을 필요로 하지 않고,\n공통적으로 하기 좋은 숙제를 정리해서 가져왔습니다 :)\n\n[- 📚 소울워커 일일 숙제](https://discord.com/channels/857371775683133480/864167531433951242/864402081012121611)")
         await message.channel.send(embed=embed)
     elif message.content == "!재화":
         embed = discord.Embed(
