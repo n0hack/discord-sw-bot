@@ -202,7 +202,7 @@ async def on_message(message):
     # 유용한 정보
     elif message.content == "!ASTERA" or message.content == "!astera" or message.content == "!공지":
         embed = discord.Embed(
-            title="아스테라 오신 것을 환영합니다!", description="공지사항에 있는 내용이지만,\n정말 중요하기 때문에 추가로 가져왔습니다!\n\n[리그 규칙](https://discord.com/channels/857371775683133480/857379819923046401/857383497663381505)\n[리그 컨텐츠 시간표 (고정X)](https://discord.com/channels/857371775683133480/857379819923046401/864151420332277771)\n[디스코드 참여 후 체크사항](https://discord.com/channels/857371775683133480/857379819923046401/864150320045097000)")
+            title="아스테라 오신 것을 환영합니다!", description="공지사항에 있는 내용이지만,\n중요하기 때문에 추가로 가져왔습니다!\n\n[리그 규칙](https://discord.com/channels/857371775683133480/857379819923046401/857383497663381505)\n[리그 컨텐츠 시간표 (고정X)](https://discord.com/channels/857371775683133480/857379819923046401/864151420332277771)\n[디스코드 참여 후 체크사항](https://discord.com/channels/857371775683133480/857379819923046401/864150320045097000)")
         await message.channel.send(embed=embed)
     elif message.content == "!거래":
         embed = discord.Embed(
@@ -214,7 +214,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!도핑":
         embed = discord.Embed(
-            title="도핑과 관련된 정보입니다!", description="도핑은 능력치를 일시적으로 높여 주는 아이템입니다.\n소울워커에서는 [퍼퓸] 아이템이 도핑 역할을 하고 있습니다!\n\n[도핑(퍼퓸) 소개/수급처](https://discord.com/channels/857371775683133480/864168723174653952/864812711102513172)")
+            title="도핑과 관련된 정보입니다!", description="도핑은 능력치를 일시적으로 높여 주는 아이템입니다.\n소울워커의 도핑 아이템을 소개합니다!\n\n[도핑(퍼퓸) 소개/수급처](https://discord.com/channels/857371775683133480/864168723174653952/864812711102513172)")
         await message.channel.send(embed=embed)
     elif message.content == "!레이드":
         embed = discord.Embed(
@@ -222,7 +222,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!메모리얼":
         embed = discord.Embed(
-            title="메모리얼과 관련된 정보입니다!", description="메모리얼은 일종의 수집 시스템입니다. [단축키 B]\n메이즈의 EP.1을 클리어하면, 메모리얼 수집이 개방됩니다.\n\n[메모리얼 아이템 좌표 (로코 타운-그레이스시티)](https://page.onstove.com/soulworker/kr/view/7315659)\n[루인포트리스-잔디이불](https://page.onstove.com/soulworker/kr/view/7315806)")
+            title="메모리얼과 관련된 정보입니다!", description="메모리얼은 일종의 수집 시스템입니다. [단축키 B]\n메이즈의 EP.1을 클리어하면, 메모리얼 수집이 개방됩니다.\n\n[메모리얼 아이템 좌표 (로코 타운 ~ 그레이스 시티)](https://page.onstove.com/soulworker/kr/view/7315659)\n[메모리얼 아이템 좌표 (루인 포트리스 ~ 잔디이불 캠프)](https://page.onstove.com/soulworker/kr/view/7315806)")
         await message.channel.send(embed=embed)
     elif message.content == "!행동력":
         embed = discord.Embed(
