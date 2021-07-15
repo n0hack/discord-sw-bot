@@ -67,7 +67,7 @@ async def on_message(message):
         embed.add_field(
             name="캐릭터 공략", value="`!하루`, `!어윈`, `!릴리`, `!스텔라`, `!진`, `!이리스`\n`!치이`, `!에프넬`, `!이나비`", inline=False)
         embed.add_field(
-            name="유용한 정보", value="`!ASTERA`, `!NPC`, `!거래`, `!경험치`, `!도핑`, `!레이드`, `!메모리얼`\n`!브로치`, `!소켓`, `!숙제`, `!아카식`, `!장비`, `!재화`, `!적중도`, `!제련`\n`!칭호`, `!캐레`, `!캐쉬`, `!코스튬`, `!파밍`, `!포션`, `!프리셋`\n`!프리카메라`, `!행감`, `!행동력`", inline=False)
+            name="유용한 정보", value="`!ASTERA`, `!NPC`, `!거래`, `!경험치`, `!도핑`, `!레이드`, `!메모리얼`\n`!브로치`, `!소켓`, `!숙제`, `!아카식`, `!장비`, `!재화`, `!적중도`\n`!제련`, `!칭호`, `!캐레`, `!캐쉬`, `!코스튬`, `!파밍`, `!포션`, `!프리셋`\n`!프리카메라`, `!행감`, `!행동력`", inline=False)
         await message.channel.send(embed=embed)
     elif message.content == "!안녕":
         await message.channel.send(message.author.nick + "님 안녕하세요!")
