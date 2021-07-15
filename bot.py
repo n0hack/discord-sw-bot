@@ -286,20 +286,19 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!파밍":
         embed = discord.Embed(
-            title="아이템 파밍에 대한 정보입니다!", description="소울워커는 컨텐츠 장벽이 낮고, 파밍 난이도가 쉬운 편입니다.\n가볍고, 천천히 즐기는 것을 추천 드려요!\n\n[장비 파밍 순서 (루나폴 ~ 바이올런트 선)](https://discord.com/channels/857371775683133480/864168723174653952/864791153119592458)")
+            title="아이템 파밍에 대한 정보입니다!", description="소울워커는 컨텐츠 진입 장벽이 낮고, 파밍이 쉬운 편입니다.\n게임을 가볍게, 천천히 즐기는 것을 추천 드려요!\n\n[장비 파밍 순서 (루나폴 ~ 바이올런트 선)](https://discord.com/channels/857371775683133480/864168723174653952/864791153119592458)")
         await message.channel.send(embed=embed)
     elif message.content == "!프리셋":
         embed = discord.Embed(
-            title="프리셋과 관련된 정보입니다!", description="스킬 프리셋은 콤보를 만드는 시스템입니다. 초반에는 크게 신경 쓸 필요가 없지만, 나중에는 어떻게 구성했는지에 따라 데미지 포텐셜에서 많은 차이가 있으므로 꼭 짚고 넘어가야 합니다 👏\n\n[뉴비가 꼭 알아야 하는 프리셋 사용법](https://arca.live/b/soulworkers/22180131)\n[프리셋과 스킬 단계별 보너스에 대한 이해](https://arca.live/b/soulworkers/16863763)")
+            title="프리셋과 관련된 정보입니다!", description="스킬 프리셋은 콤보를 만드는 시스템입니다.\n초반에는 크게 신경 쓸 필요가 없지만, 이후에는 꼭 짚고 넘어가야 합니다!\n\n[뉴비가 꼭 알아야 하는 프리셋 사용법](https://arca.live/b/soulworkers/22180131)\n[프리셋과 스킬 단계별 보너스에 대한 이해](https://arca.live/b/soulworkers/16863763)")
         await message.channel.send(embed=embed)
-
     elif message.content == "!프리카메라":
         embed = discord.Embed(
-            title="프리 카메라와 관련된 정보입니다!", description="소울워커는 캐릭터 스크린샷을\n예쁘게 촬영할 수 있도록 재밌는 기능을 제공하고 있습니다 🎀\n\n[자유로운 카메라 시점(프리카메라)](https://discord.com/channels/857371775683133480/857381375279759360/857678070756147210)")
+            title="프리 카메라와 관련된 정보입니다!", description="소울워커는 캐릭터를 예쁘게 촬영할 수 있도록\n프리 카메라라는 재밌는 기능을 제공하고 있습니다!\n\n[예쁘게 스크린샷 찍는 방법 (프리 카메라)](https://discord.com/channels/857371775683133480/864500194077966407/864773020207939614)")
         await message.channel.send(embed=embed)
     elif message.content == "!행동력":
         embed = discord.Embed(
-            title="행동력과 관련된 정보입니다!", description="[행동력 회복하는 방법](https://discord.com/channels/857371775683133480/857889672504279060/857905830808780811)\n[행동력 누적 시스템](https://discord.com/channels/857371775683133480/857889672504279060/857930601445326848)")
+            title="행동력과 관련된 정보입니다!", description="소울워커는 행동력 시스템이 있으며, 오전 9시에 초기화됩니다.\n중요한 시스템이기 때문에 채우는 법과 누적 시스템을 소개합니다!\n\n[행동력 (채우는 방법 / 누적 시스템)](https://discord.com/channels/857371775683133480/864500194077966407/864759379092570122)")
         await message.channel.send(embed=embed)
     # 테스트 명령
     elif message.content == "!시간테스트":
