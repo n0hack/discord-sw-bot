@@ -60,12 +60,12 @@ async def on_message(message):
     # 명령어 리스트 확인
     if message.content == "!명령어":
         embed = discord.Embed(
-            title="안녕하세요! 오퍼레이터 클로이입니다!", description="리그원분들께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요 💕\nㅤ", color=0x00aaaa)
+            title="안녕하세요! 오퍼레이터 클로이입니다!", description="여러분께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요 💕\nㅤ", color=0x00aaaa)
         embed.add_field(name="클로이와 인사", value="`!안녕`", inline=True)
         embed.add_field(
-            name="뉴비 가이드", value="`!육성`, `!뉴비`, `!아카식`, `!브로치`, `!프리셋`\n`!행동력`, `!부활`, `!신용도`, `!주의사항`", inline=True)
+            name="뉴비 가이드", value="`!육성`, `!뉴비`", inline=True)
         embed.add_field(
-            name="캐릭터 공략", value="`!하루`, `!어윈`, `!릴리`, `!스텔라`, `!진`\n`!이리스`, `!치이`, `!에프넬`, `!이나비`", inline=False)
+            name="캐릭터 공략", value="`!하루`, `!어윈`, `!릴리`, `!스텔라`, `!진`, `!이리스`\n`!치이`, `!에프넬`, `!이나비`", inline=False)
         embed.add_field(
             name="유용한 정보", value="`!파밍순서`, `!소켓`, `!제련`, `!브로치`, `!아카식`, `!칭호`, `!적중도`, `!레이드`\n`!도핑`, `!무적기`, `!재화`, `!퀘스트`, `!코스튬`, `!최적화`, `!프리카메라`", inline=False)
         await message.channel.send(embed=embed)
