@@ -57,11 +57,11 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    # 명령어 리스트 확인
+    # 명령어 리스트
     if message.content == "!명령어":
         embed = discord.Embed(
             title="안녕하세요! 오퍼레이터 클로이입니다!", description="여러분께 도움을 드리고자, 여러 기능을 제공하고 있습니다.\n사용 가능한 명령어는 아래에서 확인 가능합니다.\n\n좋은 하루 되세요 💕\nㅤ", color=0x00aaaa)
-        embed.add_field(name="클로이와 인사", value="`!안녕`, `!공지`", inline=True)
+        embed.add_field(name="클로이와 인사", value="`!안녕`", inline=True)
         embed.add_field(
             name="뉴비 가이드", value="`!육성`, `!뉴비`", inline=True)
         embed.add_field(
@@ -69,11 +69,17 @@ async def on_message(message):
         embed.add_field(
             name="유용한 정보", value="`!ASTERA`, `!NPC`, `!거래`, `!경험치`, `!도핑`, `!레이드`, `!메모리얼`\n`!브로치`, `!소켓`, `!숙제`, `!아카식`, `!장비`, `!재화`, `!적중도`\n`!제련`, `!칭호`, `!캐레`, `!캐쉬`, `!코스튬`, `!파밍`, `!포션`, `!프리셋`\n`!프리카메라`, `!행감`, `!행동력`", inline=False)
         await message.channel.send(embed=embed)
+    # 클로이와 인사
     elif message.content == "!안녕":
         await message.channel.send(message.author.nick + "님 안녕하세요!")
+    # 뉴비 가이드
     elif message.content == "!육성":
         embed = discord.Embed(title="리그 마스터가 직접 작성한 가이드입니다!",
                               description="아래 링크를 눌러서 순서대로 따라가시면 됩니다.\n그리고 <가이드-기초정보>에 좋은 내용이 많으니 함께 읽어 보세요 😆\n\n[🎀 시작에 앞서 드리고 싶은 말](https://page.onstove.com/soulworker/kr/view/7313632)\n[🎀 LV 01-30 (최적화/아카식/기초)](https://page.onstove.com/soulworker/kr/view/7313665)\n[🎀 LV 30-55 (칭호/브로치)](https://page.onstove.com/soulworker/kr/view/7314159)\n[🎀 LV 55-60 (소울스톤/승급)](https://page.onstove.com/soulworker/kr/view/7314368)\n[🎀 LV 60-68 (데자이어 각성)](https://page.onstove.com/soulworker/kr/view/7314505)\n[🎀 LV 68-72 (루나폴/강화/제련)](https://page.onstove.com/soulworker/kr/view/7314929)\n[🎀 LV 72-76 (만렙/유용한정보)](https://page.onstove.com/soulworker/kr/view/7314931)\n[🎀 소울워커 플레이 시 주의해야 하는 것](https://page.onstove.com/soulworker/kr/view/7314935)")
+        await message.channel.send(embed=embed)
+    elif message.content == "!뉴비":
+        embed = discord.Embed(title="뉴비분들에게 유용한 정보입니다!",
+                              description="아래 소개하는 정보 외에도 준비된 자료가 많습니다.\n가이드의 <기초정보>, <심화정보>를 참고해 주세요!\n\n[교본 아이템 정리](https://discord.com/channels/857371775683133480/864500194077966407/864758762827808809)\n[인벤토리 확장/정리 방법](https://discord.com/channels/857371775683133480/864500194077966407/864764550343950336)\n[]()\n[]()\n[]()\n[]()\n[]()\n[]()\n[]()\n[]()\n[]()\n[]()\n[]()\n")
         await message.channel.send(embed=embed)
     elif message.content == "!행동력":
         embed = discord.Embed(
