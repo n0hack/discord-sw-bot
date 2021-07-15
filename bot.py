@@ -286,15 +286,23 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!파밍":
         embed = discord.Embed(
-            title="아이템 파밍에 대한 정보입니다!", description="소울워커는 컨텐츠 진입 장벽이 낮고, 파밍이 쉬운 편입니다.\n게임을 가볍게, 천천히 즐기는 것을 추천 드려요!\n\n[장비 파밍 순서 (루나폴 ~ 바이올런트 선)](https://discord.com/channels/857371775683133480/864168723174653952/864791153119592458)")
+            title="아이템 파밍에 대한 정보입니다!", description="소울워커는 컨텐츠 장벽이 낮고, 파밍이 쉬운 편입니다.\n게임을 가볍게, 천천히 즐기는 것을 추천 드려요!\n\n[장비 파밍 순서 (루나폴 ~ 바이올런트 선)](https://discord.com/channels/857371775683133480/864168723174653952/864791153119592458)")
+        await message.channel.send(embed=embed)
+    elif message.content == "!포션":
+        embed = discord.Embed(
+            title="포션과 관련된 정보입니다!", description="포션은 생존과 유틸 확보에 많은 도움을 주기 때문에,\n주로 사용하는 포션과 수급 방법에 대해 소개합니다!\n\n[자주 사용하는 포션](https://discord.com/channels/857371775683133480/864168723174653952/864812401210949662)")
         await message.channel.send(embed=embed)
     elif message.content == "!프리셋":
         embed = discord.Embed(
-            title="프리셋과 관련된 정보입니다!", description="스킬 프리셋은 콤보를 만드는 시스템입니다.\n초반에는 크게 신경 쓸 필요가 없지만, 이후에는 꼭 짚고 넘어가야 합니다!\n\n[뉴비가 꼭 알아야 하는 프리셋 사용법](https://arca.live/b/soulworkers/22180131)\n[프리셋과 스킬 단계별 보너스에 대한 이해](https://arca.live/b/soulworkers/16863763)")
+            title="프리셋과 관련된 정보입니다!", description="스킬 프리셋은 콤보를 만드는 시스템입니다.\n초반에는 괜찮지만, 이후에는 꼭 짚고 넘어가야 합니다!\n\n[뉴비가 꼭 알아야 하는 프리셋 사용법](https://arca.live/b/soulworkers/22180131)\n[프리셋과 스킬 단계별 보너스에 대한 이해](https://arca.live/b/soulworkers/16863763)")
         await message.channel.send(embed=embed)
     elif message.content == "!프리카메라":
         embed = discord.Embed(
             title="프리 카메라와 관련된 정보입니다!", description="소울워커는 캐릭터를 예쁘게 촬영할 수 있도록\n프리 카메라라는 재밌는 기능을 제공하고 있습니다!\n\n[예쁘게 스크린샷 찍는 방법 (프리 카메라)](https://discord.com/channels/857371775683133480/864500194077966407/864773020207939614)")
+        await message.channel.send(embed=embed)
+    elif message.content == "!행감":
+        embed = discord.Embed(
+            title="행동력과 관련된 정보입니다!", description="소울워커는 주말마다 랜덤한 메이즈의 요구 행동력이 감소합니다.\n이를 행감이라 부르며, 감소되는 행동력은 아래에서 확인하세요!\n\n[메이즈 행동력 감소 버프 시스템)](https://discord.com/channels/857371775683133480/864168723174653952/864816346193985546)")
         await message.channel.send(embed=embed)
     elif message.content == "!행동력":
         embed = discord.Embed(
