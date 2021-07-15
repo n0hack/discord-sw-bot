@@ -67,7 +67,7 @@ async def on_message(message):
         embed.add_field(
             name="캐릭터 공략", value="`!하루`, `!어윈`, `!릴리`, `!스텔라`, `!진`, `!이리스`\n`!치이`, `!에프넬`, `!이나비`", inline=False)
         embed.add_field(
-            name="유용한 정보", value="`!ASTERA`, `!NPC`, `!거래`, `!경험치`, `!도핑`, `!레이드`, `!만치`,\n`!메모리얼`, `!브로치`, `!소켓`, `!숙제`, `!아카식`, `!장비`, `!재화`, `!적중도`\n`!제련`, `!칭호`, `!캐레`, `!캐쉬`, `!코스튬`, `!파밍`, `!포션`, `!프리셋`\n`!프리카메라`, `!행감`, `!행동력`", inline=False)
+            name="유용한 정보", value="`!ASTERA`, `!NPC`, `!거래`, `!경험치`, `!도핑`, `!레이드`, `!만치`,\n`!메모리얼`, `!브로치`, `!소켓`, `!숙제`, `!아카식`, `!장비`, `!재화`\n`!적중도`, `!제련`, `!칭호`, `!캐레`, `!캐쉬`, `!코스튬`, `!파밍`, `!포션`\n`!프리셋`, `!프리카메라`, `!행감`, `!행동력`", inline=False)
         await message.channel.send(embed=embed)
     # 클로이와 인사
     elif message.content == "!안녕":
@@ -222,7 +222,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!만치":
         embed = discord.Embed(
-            title="캐릭터별 만치에 대한 정보입니다!", description="캐릭터별 만치는 아래와 같습니다.\n밸런스 패치에 의해 언제든 변경될 수 있으니 유의해 주세요!\n\n- 하루: 70%\n- 어윈: 70%\n- 릴리: 55% (포스리전 15%)\n- 스텔라: 60% (비즈플레이 10%)\n- 진: 70%\n- 이리스: 70%\n- 치이: 60% (승급패시브 10%)\n- 에프넬: 70%\n- 이나비: 60% (허니비 10%)\n※ 위 치명타 확률을 맞추고, 퍼퓸을 사용하면 됩니다.")
+            title="캐릭터별 만치에 대한 정보입니다!", description="캐릭터별 만치는 아래와 같습니다.\n밸런스 패치에 의해 언제든 변경될 수 있으니 유의해 주세요!\n\n- 하루: 70%\n- 어윈: 70%\n- 릴리: 55% [포스리전 +15%]\n- 스텔라: 60% [비즈플레이 +10%]\n- 진: 70%\n- 이리스: 70%\n- 치이: 60% [승급패시브 +10%]\n- 에프넬: 70%\n- 이나비: 60% [허니비 +10%]\n※ 위 치명타 확률을 맞추고, 퍼퓸을 사용하면 됩니다.")
         await message.channel.send(embed=embed)
     elif message.content == "!메모리얼":
         embed = discord.Embed(
@@ -246,7 +246,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!장비":
         embed = discord.Embed(
-            title="장비와 관련된 정보입니다!", description="소울워커 장비 종류에 대한 설명과\n강화/계승 방법에 대해 준비했습니다!\n\n[장비 종류](https://discord.com/channels/857371775683133480/864168723174653952/864788438872227840)\n[장비 강화](https://discord.com/channels/857371775683133480/864168723174653952/864791867119239208)\n[장비 계승](https://discord.com/channels/857371775683133480/864168723174653952/864792010618830868)")
+            title="장비와 관련된 정보입니다!", description="소울워커 장비 종류에 대한 설명과\n강화/계승 방법에 대해 준비했습니다!\n\n[장비 종류 (스탠다드/익스텐드)](https://discord.com/channels/857371775683133480/864168723174653952/864788438872227840)\n[장비 강화 (장비 고유의 능력치를 높이는 시스템)](https://discord.com/channels/857371775683133480/864168723174653952/864791867119239208)\n[장비 계승 (강화 수치와 옵션의 일부를 옮기는 시스템)](https://discord.com/channels/857371775683133480/864168723174653952/864792010618830868)")
         await message.channel.send(embed=embed)
     elif message.content == "!재화":
         embed = discord.Embed(
@@ -254,11 +254,11 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     elif message.content == "!적중도":
         embed = discord.Embed(
-            title="적중도와 관련된 정보입니다!", description="적중도와 치명타 확률은 중요한 능력치입니다.\n커트라인에 직결되는 만큼, 신경을 많이 써야 합니다!\n\n[적중도와 치명타 확률의 관계](https://discord.com/channels/857371775683133480/864168723174653952/864800408282988554)")
+            title="적중도와 관련된 정보입니다!", description="적중도와 치명타 확률은 중요한 능력치입니다.\n커트라인에 직결되는 만큼, 많은 신경을 써야 합니다!\n\n[적중도와 치명타 확률의 관계](https://discord.com/channels/857371775683133480/864168723174653952/864800408282988554)")
         await message.channel.send(embed=embed)
     elif message.content == "!제련":
         embed = discord.Embed(
-            title="제련과 관련된 정보입니다!", description="제련은 장비를 가공하여 능력치를 높이거나,\n장비의 옵션(연두색)을 원하는 옵션으로 변경할 수 있는 시스템입니다.\n\n[등급 제련 (등급작)](https://discord.com/channels/857371775683133480/864168723174653952/864795517707223070)\n[옵션 제련 (옵션작)](https://discord.com/channels/857371775683133480/864168723174653952/864796973609254943)\n[태그 제련 (태그작)](https://discord.com/channels/857371775683133480/864168723174653952/864799063744184351)")
+            title="제련과 관련된 정보입니다!", description="제련은 장비를 가공하여 능력치를 높이거나,\n원하는 옵션으로 변경할 수 있는 시스템입니다.\n\n[등급 제련 (등급작)](https://discord.com/channels/857371775683133480/864168723174653952/864795517707223070)\n[옵션 제련 (옵션작)](https://discord.com/channels/857371775683133480/864168723174653952/864796973609254943)\n[태그 제련 (태그작)](https://discord.com/channels/857371775683133480/864168723174653952/864799063744184351)")
         await message.channel.send(embed=embed)
     elif message.content == "!행동력":
         embed = discord.Embed(
