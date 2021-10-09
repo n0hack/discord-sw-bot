@@ -9,7 +9,7 @@ from pytz import timezone
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-# 시간 변수
+# 시간 변수 선언
 doom_time_1 = datetime(2021, 1, 1, 12, 50, 0).strftime("%H:%M:%S")
 doom_time_2 = datetime(2021, 1, 1, 20, 50, 0).strftime("%H:%M:%S")
 league_raid_time = datetime(2021, 1, 1, 0, 0, 0).strftime("%H:%M:%S")
